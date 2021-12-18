@@ -18,18 +18,19 @@ const express = require('express'),
   crypto = require('./routes/crypto');
 
 // Mongo Database
-/*mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://" +process.env.LINK+"",{
-	useNewUrlParser:true,
-	useFindAndModify:false,
-	useUnifiedTopology:true,
-	useCreateIndex:true
-}).then(()=>{
-	console.log("DB configed");
-}).catch((err)=>{
-	console.log("ERROR:",err.message);
-});
-*/
+mongoose.Promise = global.Promise;
+mongoose
+  .connect('mongodb+srv://' + process.env.LINK + '', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log('DB configed');
+  })
+  .catch((err) => {
+    console.log('ERROR:', err.message);
+  });
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -70,7 +71,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.send({ status: err.status, stack: err.stack });
 });
 
 module.exports = app;

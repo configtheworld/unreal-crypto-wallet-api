@@ -6,6 +6,7 @@ const api_docs = {
   desc: 'This is Public API interface for Crypto Currencies and Fake Wallet Account for Tracking The Stock Market',
   author: 'Erkin Berk Ture - Gazi University Distributed Systems Project',
   github: '',
+  database: 'Mongo Atlas Cloud Database AWS M0 Sandbox',
   endpoints: [
     {
       'GET /': {
@@ -29,6 +30,14 @@ const api_docs = {
         requestparams: 'coin_id',
         requestbody: '-',
         resonseTypes: [200, 404, 500],
+      },
+    },
+    {
+      'GET /wallet?token=YOUR_LOGIN_TOKEN': {
+        desc: 'Show User Wallet',
+        requestparams: 'token',
+        requestbody: '',
+        resonseTypes: [200, 401, 404, 500],
       },
     },
     {
