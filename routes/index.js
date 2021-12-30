@@ -5,7 +5,7 @@ const api_docs = {
   name: 'Unreal Crypto Wallet API',
   desc: 'This is Public API interface for Crypto Currencies and Fake Wallet Account for Tracking The Stock Market',
   author: 'Erkin Berk Ture - Gazi University Distributed Systems Project',
-  github: '',
+  github: 'https://github.com/configtheworld/unreal-crypto-wallet-api',
   database: 'Mongo Atlas Cloud Database AWS M0 Sandbox',
   endpoints: [
     {
@@ -21,15 +21,15 @@ const api_docs = {
         desc: 'list of top 50 coins',
         requestparams: '-',
         requestbody: '-',
-        resonseTypes: [200, 404, 500],
+        resonseTypes: [200, 400, 404, 500],
       },
     },
     {
       'GET /coin/:coin_id': {
         desc: 'get single coin',
-        requestparams: 'coin_id',
+        requestparams: 'coin_id ex:btc, algo, eth, mina',
         requestbody: '-',
-        resonseTypes: [200, 404, 500],
+        resonseTypes: [200, 400, 404, 500],
       },
     },
     {
