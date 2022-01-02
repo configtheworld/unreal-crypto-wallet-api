@@ -2,12 +2,14 @@
   "name": "unreal-crypto-wallet-api",
   "version": "0.0.0",
   "private": true,
+  "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
     "body-parser": "^1.19.1",
+    "compression": "^1.7.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
