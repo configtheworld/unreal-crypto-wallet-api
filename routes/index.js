@@ -75,15 +75,15 @@ const api_docs = {
   ],
   some_exapmle_coins: [
     {
-      id: 'bitcoin',
+      id: 'btc',
       name: 'Bitcoin',
     },
     {
-      id: 'ethereum',
+      id: 'etc',
       name: 'Ethereum',
     },
     {
-      id: 'algorand',
+      id: 'algo',
       name: 'Algorand',
     },
   ],
