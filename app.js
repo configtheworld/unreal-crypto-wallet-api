@@ -71,7 +71,6 @@ app.use(crypto);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSanitizer());
 
 app.locals.moment = require('moment');
