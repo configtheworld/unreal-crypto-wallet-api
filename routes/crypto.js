@@ -13,12 +13,10 @@ router.get('/coins', async (req, res, next) => {
     }));
     res.send(coin_list);
   } catch (err) {
-    res
-      .send({
-        message:
-          'Wrong or Missing Coin ID Try again with coin short name ex:BTC not bitcoin',
-      })
-      .status(400);
+    res.status(400).send({
+      message:
+        'Wrong or Missing Coin ID Try again with coin short name ex:BTC not bitcoin',
+    });
   }
 });
 
@@ -31,12 +29,10 @@ router.get('/coin/:coin_id', async (req, res, next) => {
 
     res.send(coin_obj.data);
   } catch (err) {
-    res
-      .send({
-        message:
-          'Wrong or Missing Coin ID Try again with coin short name ex:BTC not bitcoin',
-      })
-      .status(400);
+    res.status(400).send({
+      message:
+        'Wrong or Missing Coin ID Try again with coin short name ex:BTC not bitcoin',
+    });
   }
 });
 

@@ -91,8 +91,7 @@ const api_docs = {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.status(200);
-  res.send(api_docs);
+  res.status(200).send(api_docs);
 });
 
 module.exports = router;

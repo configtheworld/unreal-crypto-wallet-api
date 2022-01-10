@@ -12,12 +12,14 @@ router.post('/register', (req, res) => {
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {
       console.log(err);
-      res.send('Something wrong Try Again');
+      res.status(500).send('Something wrong Try Again');
     }
     passport.authenticate('local')(req, res, () => {
-      res.send(
-        'Success, Now Login with same creadentials and use login token other token required operations'
-      );
+      res
+        .status(200)
+        .send(
+          'Success, Now Login with same creadentials and use login token other token required operations'
+        );
     });
   });
 });

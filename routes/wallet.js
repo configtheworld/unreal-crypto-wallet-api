@@ -29,17 +29,17 @@ router.get('/wallet', async (req, res, next) => {
       }
     } else {
       res
+        .status(400)
         .send(
           'Wrong or Missing Query Try again with login token as ?token=YOUR_LOGIN_TOKEN'
-        )
-        .status(400);
+        );
     }
   } catch (e) {
     res
+      .status(404)
       .send(
         'Wrong or Missing Query Try again with login token as ?token=YOUR_LOGIN_TOKEN'
-      )
-      .status(404);
+      );
   }
 });
 
@@ -55,24 +55,22 @@ router.post('/wallet', function (req, res, next) {
         if (err) {
           res.send('Wallet could not created');
         } else {
-          res.send(
-            'Your Wallet Created. If you have wallet already you can not create wallet'
-          );
+          res.send('Your Wallet Created.');
         }
       });
     } else {
       res
+        .status(400)
         .send(
           'Wrong or Missing Query Try again with login token as ?token=YOUR_LOGIN_TOKEN'
-        )
-        .status(400);
+        );
     }
   } catch (e) {
     res
+      .status(404)
       .send(
         'Wrong or Missing Query Try again with login token as ?token=YOUR_LOGIN_TOKEN'
-      )
-      .status(404);
+      );
   }
 });
 
@@ -87,7 +85,7 @@ router.patch('/wallet', async (req, res, next) => {
             coins: req.body.coins,
           }
         );
-        res.send('Your Wallet Updated');
+        res.status(200).send('Your Wallet Updated');
       } else {
         res.send(
           'In order to add token please add coin info ex:{ coin_id: "algorand", amount: 200 } to request body'
@@ -95,17 +93,17 @@ router.patch('/wallet', async (req, res, next) => {
       }
     } else {
       res
+        .status(400)
         .send(
           'Wrong or Missing Query Try again with login token as ?token=YOUR_LOGIN_TOKEN'
-        )
-        .status(400);
+        );
     }
   } catch (e) {
     res
+      .status(404)
       .send(
         'Wrong or Missing Query Try again with login token as ?token=YOUR_LOGIN_TOKEN'
-      )
-      .status(404);
+      );
   }
 });
 
