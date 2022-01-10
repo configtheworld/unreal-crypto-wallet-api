@@ -21,6 +21,25 @@ var http = require('http');
 var compression = require('compression');
 
 // Mongo Database
+/*
+//Set up default mongoose connection
+var mongoDB = 'mongodb://mongo:27017';
+mongoose
+  .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('DB configed');
+  })
+  .catch((err) => {
+    console.log('ERROR:', err.message);
+  });
+
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+*/
 mongoose.Promise = global.Promise;
 mongoose
   .connect('mongodb+srv://' + process.env.LINK + '', {
