@@ -6,7 +6,7 @@ const api_docs = {
   desc: 'This is Public API interface for Crypto Currencies and Fake Wallet Account for Tracking The Stock Market',
   author: 'Erkin Berk Ture - Gazi University Distributed Systems Project',
   github: 'https://github.com/configtheworld/unreal-crypto-wallet-api',
-  database: 'Mongo Atlas Cloud Database AWS M0 Sandbox',
+  database: 'Mongo DB Container',
   endpoints: [
     {
       'GET /': {
