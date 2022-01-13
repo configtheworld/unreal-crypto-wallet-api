@@ -1,32 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const Wallet = require('../models/walletmodel');
-
+const User = require('../models/usermodel');
 /* Show User Wallet */
 router.get('/wallet', async (req, res, next) => {
   try {
     if (req.query.token) {
-      // TODO: calculate coin price
-      const wallet = await Wallet.findOne({ owner: req.query.token });
-
-      if (wallet.coins.length > 0) {
-        let coin_query = '';
-
-        await wallet.coins.map((coin) => {
-          coin_query = coin.coin_id + ',';
-        });
-        /*
-        const coin_obj = await axios_get(
-          `/data/pricemulti?fsyms=${coin_query.slice(0, -1)}&tsyms=USD,TRY`
-        );
-
-        await wallet.coins.map((coin)=>{
-        })
-          */
-        res.send(coin_query);
-      } else {
-        res.send(wallet);
-      }
+      User.findById(req.query.token, (err, user) => {
+        if (err) {
+          res.send('Your Wallet Created.User Not Found');
+        } else {
+          Wallet.findOne({ owner: user }, (err, wallet) => {
+            if (err) {
+              res.send('Your Wallet Created.User Not Found');
+            } else {
+              res.send(wallet);
+            }
+          });
+        }
+      });
     } else {
       res
         .status(400)
@@ -44,18 +36,24 @@ router.get('/wallet', async (req, res, next) => {
 });
 
 /* register for create fake wallet */
-router.post('/wallet', function (req, res, next) {
+router.post('/wallet', async function (req, res, next) {
   try {
     if (req.query.token) {
-      let wallet = new Wallet({
-        coins: [],
-        owner: req.query.token,
-      });
-      wallet.save((err) => {
+      User.findById(req.query.token, (err, user) => {
         if (err) {
-          res.send('Wallet could not created');
+          res.send('Your Wallet Created.User Not Found');
         } else {
-          res.send('Your Wallet Created.');
+          let wallet = new Wallet({
+            coins: [],
+            owner: user,
+          });
+          wallet.save((err) => {
+            if (err) {
+              res.send('Wallet could not created' + err.message);
+            } else {
+              res.send('Your Wallet Created.');
+            }
+          });
         }
       });
     } else {
@@ -108,3 +106,20 @@ router.patch('/wallet', async (req, res, next) => {
 });
 
 module.exports = router;
+
+/**
+ *       if (wallet.coins.length > 0) {
+        let coin_query = '';
+
+        await wallet.coins.map((coin) => {
+          coin_query = coin.coin_id + ',';
+        });
+        
+        const coin_obj = await axios_get(
+          `/data/pricemulti?fsyms=${coin_query.slice(0, -1)}&tsyms=USD,TRY`
+        );
+
+        await wallet.coins.map((coin)=>{
+        })
+          
+ */
