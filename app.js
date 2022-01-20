@@ -22,7 +22,7 @@ var compression = require('compression');
 
 // Mongo Database
 
-//Set up default mongoose connection
+//Set up default mongo shell connection
 var mongoDB = 'mongodb://mongo:27017';
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,7 +39,7 @@ var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-/*
+/** mongo Atlas cloud db connection 
 mongoose.Promise = global.Promise;
 mongoose
   .connect('mongodb+srv://' + process.env.LINK + '', {
