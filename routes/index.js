@@ -8,6 +8,7 @@ const api_docs = {
   github: 'https://github.com/configtheworld/unreal-crypto-wallet-api',
   database: 'Mongo DB',
   structure: 'Api and database are communicated containers',
+  live: 'https://unreal-crypto-wallet-api.herokuapp.com/',
   endpoints: [
     {
       'GET /': {
