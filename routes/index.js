@@ -4,9 +4,10 @@ var router = express.Router();
 const api_docs = {
   name: 'Unreal Crypto Wallet API',
   desc: 'This is Public API interface for Crypto Currencies and Fake Wallet Account for Tracking The Stock Market',
-  author: 'Erkin Berk Ture - Gazi University Distributed Systems Project',
+  author: 'Erkin Ture - Gazi University Distributed Systems Project',
   github: 'https://github.com/configtheworld/unreal-crypto-wallet-api',
-  database: 'Mongo DB Container',
+  database: 'Mongo DB',
+  structure: 'Api and database are communicated containers',
   endpoints: [
     {
       'GET /': {
