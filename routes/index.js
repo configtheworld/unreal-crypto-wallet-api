@@ -15,7 +15,7 @@ const api_docs = {
         desc: 'Unreal Crypto Wallet API Documentation',
         requestparams: '-',
         requestbody: '-',
-        resonseTypes: [200, 404, 500],
+        resonseTypes: [200],
       },
     },
     {
@@ -23,7 +23,7 @@ const api_docs = {
         desc: 'list of top 50 coins',
         requestparams: '-',
         requestbody: '-',
-        resonseTypes: [200, 400, 404, 500],
+        resonseTypes: [200, 500],
       },
     },
     {
@@ -31,7 +31,7 @@ const api_docs = {
         desc: 'get single coin',
         requestparams: 'coin_id ex:btc, algo, eth, mina',
         requestbody: '-',
-        resonseTypes: [200, 400, 404, 500],
+        resonseTypes: [200, 500],
       },
     },
     {
@@ -39,7 +39,7 @@ const api_docs = {
         desc: 'Show User Wallet',
         requestparams: 'token',
         requestbody: '',
-        resonseTypes: [200, 401, 404, 500],
+        resonseTypes: [200, 401, 500],
       },
     },
     {
@@ -47,7 +47,7 @@ const api_docs = {
         desc: 'register for create fake wallet',
         requestparams: 'token',
         requestbody: '',
-        resonseTypes: [200, 401, 404, 500],
+        resonseTypes: [200, 401, 500],
       },
     },
     {
@@ -55,7 +55,7 @@ const api_docs = {
         desc: 'Add Fake Currencies to Your Wallet',
         requestparams: 'token',
         requestbody: { coin_id: 'algorand', amount: 200 },
-        resonseTypes: [200],
+        resonseTypes: [200, 500],
       },
     },
     {
@@ -63,7 +63,7 @@ const api_docs = {
         desc: 'register for create fake wallet',
         requestparams: '-',
         requestbody: { username: 'username', password: 'password' },
-        resonseTypes: [200, 401, 404, 500],
+        resonseTypes: [200, 401, 500],
       },
     },
     {
@@ -71,7 +71,7 @@ const api_docs = {
         desc: 'login for fake wallet info',
         requestparams: '-',
         requestbody: { username: 'username', password: 'password' },
-        resonseTypes: [200, 401, 404, 500],
+        resonseTypes: [200, 401, 500],
       },
     },
   ],
